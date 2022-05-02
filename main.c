@@ -36,6 +36,10 @@ int main(void) {
     //menu inicial que vai ficar no loop, utilizei a variavel opt pra ser os valores para as opçoes e enquanto o valor nao for zero, ele vai ficar rodando, quando for zero ele deve sair do loop e encerrar o programa
     
     switch(opt){
+        
+        // case 1 vai pedir pra digitar uma matricula, e usei o strcat pra fazer a concatenaçao
+        // usei tambem o strcopy para copiar o conteudo escrito pra dentro do vetor.
+       
       case 1: 
         printf("digite a matricula do servidor: \n");
         scanf("%s", &matricula);
@@ -44,6 +48,9 @@ int main(void) {
         topo ++;
         break;
       case 2:
+        
+        
+        
         printf("digite a matricula do servidor: \n");
         scanf("%s", &matricula);
         i=0;
@@ -56,19 +63,16 @@ int main(void) {
             strcat(servidor[i],"$");
             strcat(servidor[i],placa);
             vagas --;
+            // aqui a variavel vagas, vai decrementar de acordo com o tantos de carros registrados no estacionamento, dai quando eu for listar as vagas livres, vou apenas dar um print na variavel vagas
           }
           i++;
         }
         break;
       case 3:
+        //aqui vai mostrar todas as matriculas sendo as preenchidas ou vagas contendo um 0 para as vazias
         i = 0;
         while(i<50){
           printf("matricula: %s \n",servidor[i]);
-          /*while(token!=NULL){
-            token=strtok(NULL,"$");
-            printf("carro: %s \n",token);
-          }*/
-          
           i++; 
         }
         break;
@@ -77,6 +81,8 @@ int main(void) {
         break;
     } if(opt<0 || opt>4){
       printf("comando nao aceito, escolha uma opçao valida! \n");}
+    
+    // tratamento de erro caso seja escolhida uma opcao fora do range que eu coloquei no menu
   } while(opt != 0);
   return 0;
 }
