@@ -11,13 +11,18 @@ int main(void) {
   char placa [8];
   char matricula [50];
   char servidor [50] [50];
+  
+  // esse for usei pra limpar o vetor, pq tava vindo com sujeira, usei esse metodo pra zerar todo o vetor
+  
   for(i=0;i<50;i++){
-    strcpy(servidor[i],"0");
+    strcpy(servidor[i],"0"); 
   }
   
   int opt;
   printf("quantas vagas estao disponiveis= \n");
   scanf("%d",&vagas);
+  
+  // a definiçao de vagas do estacionamento, é feita nesse scanf, a lista de vagas livres vai ficar por conta do valor que eu colocar aqui, sendo decrementado toda vez que um carro for colocado
   
   do{
     printf("1- inserir servidor:\n");
@@ -27,6 +32,9 @@ int main(void) {
     printf("0- sair do programa:\n");
     printf("digite sua opcao: \n");
     scanf("%d", &opt);
+    
+    //menu inicial que vai ficar no loop, utilizei a variavel opt pra ser os valores para as opçoes e enquanto o valor nao for zero, ele vai ficar rodando, quando for zero ele deve sair do loop e encerrar o programa
+    
     switch(opt){
       case 1: 
         printf("digite a matricula do servidor: \n");
@@ -67,7 +75,8 @@ int main(void) {
       case 4:
       printf("%d \n", vagas);
         break;
-    }
+    } if(opt<0 || opt>4){
+      printf("comando nao aceito, escolha uma opçao valida! \n");}
   } while(opt != 0);
   return 0;
 }
